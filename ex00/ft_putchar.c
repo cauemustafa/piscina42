@@ -6,7 +6,7 @@
 /*   By: cassem <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 18:05:16 by cassem            #+#    #+#             */
-/*   Updated: 2024/08/16 18:24:55 by cassem           ###   ########.fr       */
+/*   Updated: 2024/08/16 18:40:01 by cassem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,3 +15,11 @@
 void ft_putchar(char c){
 	write(1, &c, 1);
 }
+
+// descomente o main para testar a função
+/*
+ * int main() {
+ * 	ft_putchar('a');
+ * 	return 0;
+ * }
+ */
