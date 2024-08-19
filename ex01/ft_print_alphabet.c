@@ -6,7 +6,7 @@
 /*   By: cassem <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 17:21:07 by cassem            #+#    #+#             */
-/*   Updated: 2024/08/19 18:07:10 by cassem           ###   ########.fr       */
+/*   Updated: 2024/08/19 18:24:17 by cassem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ft_print_alphabet(void)
 	}
 }
 
-int	main(void)
+/* int	main(void)
 {
 	ft_print_alphabet();
 	return (0);
-}
+} */
