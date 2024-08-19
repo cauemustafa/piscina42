@@ -3,63 +3,79 @@
 /*                                                        :::      ::::::::   */
 /*   rush02.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbastos- <gbastos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cassem <cassem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 21:46:26 by gbastos-          #+#    #+#             */
-/*   Updated: 2024/08/18 16:37:21 by gbastos-         ###   ########.fr       */
+/*   Updated: 2024/08/18 20:37:19 by cassem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include	<unistd.h>
 
-void	ft_putchar(char character)
+void	ft_putchar(char character);
+
+void	write_first_row(int x)
 {
-	write(1, &character, 1);
+	int	col;
+
+	col = 1;
+	while (col <= x)
+	{
+		if (col == 1 || col == x)
+			ft_putchar('A');
+		else
+			ft_putchar('B');
+		col++;
+	}
+	ft_putchar('\n');
+}
+
+void	write_middle_row(int x)
+{
+	int	col;
+
+	col = 1;
+	while (col <= x)
+	{
+		if (col == 1 || col == x)
+			ft_putchar('B');
+		else
+			ft_putchar(' ');
+		col++;
+	}
+	ft_putchar('\n');
+}
+
+void	write_last_row(int x)
+{
+	int	col;
+
+	col = 1;
+	while (col <= x)
+	{
+		if (col == 1 || col == x)
+			ft_putchar('C');
+		else
+			ft_putchar('B');
+		col++;
+	}
+	ft_putchar('\n');
 }
 
 void	rush(int x, int y)
 {
-	int	i;
-	int	j;
+	int	row;
 
-	i = 0;
-	while (i < x)
+	row = 2;
+	if (y > 0)
 	{
-		j = 0;
-		while (j < y)
+		write_first_row(x);
+		while (row < y)
 		{
-			if (i == 0)
-			{
-				if (j == 0 || j == y - 1)
-				{
-					ft_putchar('A');
-				}
-				else
-					ft_putchar('B');
-			}
-			else if (i == x - 1)
-			{
-				if (j == 0 || j == y - 1)
-				{
-					ft_putchar('C');
-				}
-				else
-					ft_putchar('B');
-			}
-			else if (i != 0 || i != x-1){
-				if (j == 0 || j == y -1)
-					ft_putchar('B');
-				else
-					ft_putchar(' ');
-			}
-			j++;
+			write_middle_row(x);
+			row++;
 		}
-		ft_putchar('\n');
-		i++;
+		if (y > 1)
+			write_last_row(x);
 	}
-}
-int	main(void)
-{
-	rush(123,47);
-	return (0);
 }
