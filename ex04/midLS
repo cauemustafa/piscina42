@@ -1,5 +1,0 @@
-#!/bin/bash
-ls -lt -m -F
-# ls -lt: garante que os aruivos mais recentes apareçam primeiro
-# ls -m: garante que os arquivos e diretórios sejam separados por uma vírgula
-# ls -F: adiciona um '/' no final dos nomes de diretórios, um '*' no final dos nomes de arquivos executáveis, um “@” no final dos nomes de links, etc.
