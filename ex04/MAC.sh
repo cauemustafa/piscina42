@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ifconfig -a | grep 'ether' | awk '{print $2}'
+ip link show | awk '/ether/ {print $2}' | uniq
