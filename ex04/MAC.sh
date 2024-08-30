@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ifconfig | awk '/ether/ {print $2}' | sort | uniq
+ifconfig | awk '/ether/ {print $2}'
