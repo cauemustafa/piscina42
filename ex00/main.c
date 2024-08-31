@@ -6,7 +6,7 @@
 /*   By: ltayra-y <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 14:21:14 by ltayra-y          #+#    #+#             */
-/*   Updated: 2024/08/31 16:24:31 by ltayra-y         ###   ########.fr       */
+/*   Updated: 2024/08/31 16:27:12 by alexanfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_printstr(char *str)
 	write(1, "\n", 1);
 }
 		
-int	ft_integer(char *str)
+int	ft_is_int(char *str)
 {
 	int	i;
 
@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		if (ft_integer(argv[1]) == 1)
+		if (ft_is_int(argv[1]) == 1)
 		{
 			ft_printstr("Error");
 			return (1);
@@ -63,7 +63,7 @@ int	main(int argc, char **argv)
 	}
 	else if (argc == 3)
 	{
-		if (ft_integer(argv[2]) == 1)
+		if (ft_is_int(argv[2]) == 1)
                 {
                         ft_printstr("Error");
                         return (1);
