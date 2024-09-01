@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltayra-y <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 17:57:49 by ltayra-y          #+#    #+#             */
-/*   Updated: 2024/08/31 18:20:22 by ltayra-y         ###   ########.fr       */
+/*   Updated: 2024/09/01 13:53:08 by cassem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void	ft_printstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
-		write(1, &str[i], 1);
+		ft_putchar(str[i]);
 		i++;
 	}
-	write(1, "\n", 1);
+	ft_putchar('\n');
 }
 
 int	ft_is_int(char *str)
@@ -32,7 +37,7 @@ int	ft_is_int(char *str)
 
 	n = 39;
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		if (str[i] == '.' || str [i] == '-' || str[i] == ',')
 			return (1);
@@ -48,9 +53,7 @@ int	ft_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
+	while (str[i])
+			i++;
 	return (i);
 }
