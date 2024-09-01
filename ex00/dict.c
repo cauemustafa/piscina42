@@ -16,6 +16,7 @@
 #include <stdlib.h>
 
 #define MAX_STRING_LENGTH 1000
+#define MAX_PAIRS 100
 
 struct s_kv
 {
@@ -23,10 +24,11 @@ struct s_kv
 	char	value[MAX_STRING_LENGTH];
 };
 
-int			ft_is_space(char c);
-void		ft_remove_whitespace(char *str);
 struct s_kv	*ft_handle_dict(char *dict_name, int *pair_count);
+void		ft_remove_whitespace(char *str);
 void		ft_parse_buffer(char *buffer, struct s_kv *pairs, int *pair_count);
+void		ft_extract_key_value(char *line, struct s_kv *pair);
+int			ft_is_space(char c);
 
 struct s_kv	*ft_handle_dict(char *dict_name, int *pair_count)
 {
@@ -34,10 +36,9 @@ struct s_kv	*ft_handle_dict(char *dict_name, int *pair_count)
 	ssize_t				bytes_read;
 	char				buff[10000];
 	struct s_kv			*pairs;
-	int					max_pairs;
 
 	fd = open(dict_name, O_RDONLY);
-	pairs = malloc(sizeof(struct s_kv) * max_pairs);
+	pairs = malloc(sizeof(struct s_kv) * MAX_PAIRS);
 	*pair_count = 0;
 	if (!pairs)
 		return (NULL);
@@ -52,29 +53,27 @@ struct s_kv	*ft_handle_dict(char *dict_name, int *pair_count)
 	return (pairs);
 }
 
-int	ft_is_space(char c)
+void	ft_parse_buffer(char *buffer, struct s_kv *pairs, int *pair_count)
 {
-	if ((c > '\t' && c < '\r') || (c == ' '))
-	{
-		return (1);
-	}
-	return (0);
-}
+	char	*line;
+	char	*end_of_line;
 
-void	ft_remove_whitespace(char *str)
-{
-	char	*dst;
-
-	dst = str;
-	while (*str)
+	*pair_count = 0;
+	line = buffer;
+	while (*line && *pair_count < MAX_PAIRS)
 	{
-		if (!ft_is_space((unsigned char)*str))
-		{
-			*dst++ = *str;
-		}
-		str++;
+		end_of_line = line;
+		while (*end_of_line && *end_of_line != '\n')
+			end_of_line++;
+		if (*end_of_line == '\n')
+			*end_of_line = '\0';
+		ft_remove_whitespace(line);
+		ft_extract_key_value(line, &pairs[*pair_count]);
+		(*pair_count)++;
+		line = end_of_line;
+		if (*line == '\0')
+			line++;
 	}
-	*dst = '\0';
 }
 
 void	ft_extract_key_value(char *line, struct s_kv *pair)
@@ -101,27 +100,27 @@ void	ft_extract_key_value(char *line, struct s_kv *pair)
 	pair->value[value_index] = '\0';
 }
 
-void	ft_parse_buffer(char *buffer, struct s_kv *pairs, int *pair_count)
+void	ft_remove_whitespace(char *str)
 {
-	int		max_pairs;
-	char	*line;
-	char	*end_of_line;
+	char	*dst;
 
-	max_pairs = 100;
-	*pair_count = 0;
-	line = buffer;
-	while (*line && *pair_count < max_pairs)
+	dst = str;
+	while (*str)
 	{
-		end_of_line = line;
-		while (*end_of_line && *end_of_line != '\n')
-			end_of_line++;
-		if (*end_of_line == '\n')
-			*end_of_line = '\0';
-		ft_remove_whitespace(line);
-		ft_extract_key_value(line, &pairs[*pair_count]);
-		(*pair_count)++;
-		line = end_of_line;
-		if (*line == '\0')
-			line++;
+		if (!ft_is_space((unsigned char)*str))
+		{
+			*dst++ = *str;
+		}
+		str++;
 	}
+	*dst = '\0';
+}
+
+int	ft_is_space(char c)
+{
+	if ((c > '\t' && c < '\r') || (c == ' '))
+	{
+		return (1);
+	}
+	return (0);
 }
