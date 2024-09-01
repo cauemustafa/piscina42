@@ -10,26 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_printstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	ft_putchar('\n');
-}
-
 int	ft_is_int(char *str)
 {
 	int	i;
@@ -46,14 +26,4 @@ int	ft_is_int(char *str)
 		i++;
 	}
 	return (0);
-}
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-			i++;
-	return (i);
 }
