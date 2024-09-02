@@ -27,3 +27,10 @@ int	ft_is_int(char *str)
 	}
 	return (0);
 }
+
+char	*trim_starting_zeros(char *str)
+{
+	while (*str == '0')
+		str++;
+	return (str);
+}
