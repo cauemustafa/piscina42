@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltayra-y <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cassem <cassem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 17:57:49 by ltayra-y          #+#    #+#             */
-/*   Updated: 2024/09/01 13:53:08 by cassem           ###   ########.fr       */
+/*   Updated: 2024/09/01 22:25:38 by cassem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 int	ft_is_int(char *str)
 {
@@ -26,4 +28,40 @@ int	ft_is_int(char *str)
 		i++;
 	}
 	return (0);
+}
+
+static int	ft_numlen(int n)
+{
+    int	len;
+
+    len = 0;
+    if (n <= 0)
+        len++;
+    while (n != 0)
+    {
+        n /= 10;
+        len++;
+    }
+    return (len);
+}
+
+char	*ft_itoa(int n)
+{
+    char	*str;
+    int		len;
+    int		i;
+
+    len = ft_numlen(n);
+    str = malloc(sizeof(char) * (len + 1));
+    if (!str)
+		return (NULL);
+    str[len--] = '\0';
+	i = 0;
+    while (len >= i)
+    {
+        str[len] = '0' + (n % 10);
+        n /= 10;
+        len--;
+    }
+    return (str);
 }
