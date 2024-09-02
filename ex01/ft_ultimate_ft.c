@@ -6,13 +6,15 @@
 /*   By: cassem <cassem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 22:18:29 by cassem            #+#    #+#             */
-/*   Updated: 2024/09/02 20:00:12 by cassem           ###   ########.fr       */
+/*   Updated: 2024/09/02 20:08:27 by cassem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <unistd.h>
 
-void	ft_ultimate_ft(int *********nbr){
+void	ft_ultimate_ft(int *********nbr)
+{
 	*********nbr = 42;
 }
 
