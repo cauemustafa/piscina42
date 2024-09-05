@@ -6,7 +6,7 @@
 /*   By: cassem <cassem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 21:16:29 by cassem            #+#    #+#             */
-/*   Updated: 2024/09/04 05:48:30 by cassem           ###   ########.fr       */
+/*   Updated: 2024/09/05 19:59:57 by cassem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ int	main(void)
 {
 	char	*src;
 	char	dest[20];
+	char *address;
 
 	src = "Hello, World!";
-	ft_strcpy(dest, src);
+	address = ft_strcpy(dest, src);
 	printf("Source: %s\n", src);
 	printf("Destination: %s\n", dest);
+	printf("Address: %p\n", address);
 	return (0);
 }
  */
