@@ -6,7 +6,7 @@
 /*   By: cassem <cassem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 21:28:53 by cassem            #+#    #+#             */
-/*   Updated: 2024/09/04 05:48:29 by cassem           ###   ########.fr       */
+/*   Updated: 2024/09/05 19:56:47 by cassem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,30 @@
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
+	char	*ptr;
 	char	*end;
 
+	ptr = dest;
 	end = dest + n;
-	while (dest < end && *src)
-		*dest++ = *src++;
-	while (dest < end)
-		*dest++ = '\0';
+	while (ptr < end && *src)
+		*ptr++ = *src++;
+	while (ptr < end)
+		*ptr++ = '\0';
 	return (dest);
 }
-/* 
+
 int	main(void)
 {
 	char			dest[20];
 	char			*src;
 	unsigned int	n;
+	char *test;
 
 	src = "Hello, World!";
 	n = 5;
-	ft_strncpy(dest, src, n);
-	printf("Copied string: %s\n", dest);
+	test = ft_strncpy(dest, src, n);
+	printf("Source string: %s\n", src);
+	printf("Dest string: %s\n", dest);
+	printf("Test string: %s\n", test);
 	return (0);
 }
- */
