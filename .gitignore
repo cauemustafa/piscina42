@@ -1,0 +1,7 @@
+ex*/*.out
+*.out
+ex*/*.swp
+*.swp
+ex*/*.swo
+*.swo
+.nfs*
