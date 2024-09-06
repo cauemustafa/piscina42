@@ -16,8 +16,7 @@
 
 void	ft_printstr(char *str);
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
-int		ft_strlen(const char *str);
-char	*ft_strcat(char *dest, const char *src);
+int		ft_strlen(char *str);
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
@@ -37,7 +36,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	return (dest);
 }
 
-int	ft_strlen(const char *str)
+int	ft_strlen(char *str)
 {
 	int	count;
 
@@ -57,21 +56,4 @@ void	ft_printstr(char *str)
 		write(1, str, 1);
 		str++;
 	}
-}
-
-char	*ft_strcat(char *dest, const char *src)
-{
-	char	*ptr;
-
-	ptr = dest;
-	while (*ptr)
-		ptr++;
-	while (*src)
-	{
-		*ptr = *src;
-		ptr++;
-		src++;
-	}
-	*ptr = '\0';
-	return (dest);
 }

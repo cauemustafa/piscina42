@@ -6,7 +6,7 @@
 /*   By: cassem <cassem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 17:57:49 by ltayra-y          #+#    #+#             */
-/*   Updated: 2024/09/01 22:25:38 by cassem           ###   ########.fr       */
+/*   Updated: 2024/09/01 22:41:48 by cassem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,11 @@ char	*ft_itoa(int n)
         len--;
     }
     return (str);
+}
+
+char	*trim_starting_zeros(char *str)
+{
+	while (*str == '0')
+		str++;
+	return (str);
 }
